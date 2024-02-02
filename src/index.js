@@ -189,7 +189,7 @@ function readLuaPart (pico8Bytes) {
 
   if (isNewFormat) {
     const code = decompressNewFormat(mainPart)
-    console.log('[CODE]', code)
+    return code
   } else if (isOldFormat) {
     // TODO: 解析旧版本格式
   } else {
