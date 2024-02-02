@@ -2,24 +2,24 @@ let bits = []
 let ptr = 0
 
 // 加载图片并读取像素颜色
-function readImagePixels(imagePath) {
+function readImagePixels (imagePath) {
   return new Promise((resolve, reject) => {
-    const image = new Image();
+    const image = new Image()
     image.onload = () => {
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      canvas.width = image.width;
-      canvas.height = image.height;
-      context.drawImage(image, 0, 0);
-      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-      const pixels = imageData.data;
-      resolve(pixels);
-    };
+      const canvas = document.createElement('canvas')
+      const context = canvas.getContext('2d')
+      canvas.width = image.width
+      canvas.height = image.height
+      context.drawImage(image, 0, 0)
+      const imageData = context.getImageData(0, 0, canvas.width, canvas.height)
+      const pixels = imageData.data
+      resolve(pixels)
+    }
     image.onerror = () => {
-      reject(new Error('无法加载图片'));
-    };
-    image.src = imagePath;
-  });
+      reject(new Error('无法加载图片'))
+    }
+    image.src = imagePath
+  })
 }
 
 // 从颜色数据中分离出 P8 的数据
@@ -30,7 +30,7 @@ function readAsP8Bytes (pixels) {
     const g = pixels[i + 1] & 0b00000011
     const b = pixels[i + 2] & 0b00000011
     const a = pixels[i + 3] & 0b00000011
-    const byte =  (a << 6) | (r << 4) | (g << 2) | b
+    const byte = (a << 6) | (r << 4) | (g << 2) | b
     bytes[i / 4] = byte
   }
   return bytes
@@ -40,21 +40,21 @@ function readAsP8Bytes (pixels) {
 function isHeaderEqual (buffer, headerBuffer) {
   const length = headerBuffer.length
   if (buffer.length < length) {
-    return false; // 如果长度不够，直接返回 false
+    return false // 如果长度不够，直接返回 false
   }
 
   for (let i = 0; i < length; i++) {
     if (buffer[i] !== headerBuffer[i]) {
-      return false; // 只要有一个字节不匹配，就返回 false
+      return false // 只要有一个字节不匹配，就返回 false
     }
   }
 
-  return true; // 所有字节匹配，返回 true
+  return true // 所有字节匹配，返回 true
 }
 
 // 读取 P8 文件的 asset 部分
 function readAssetPart (pico8Bytes) {
-  const assetPart = pico8Bytes.slice(0, 0x4300)
+  // const assetPart = pico8Bytes.slice(0, 0x4300)
   // TODO: 解析 asset 部分
 }
 
@@ -84,7 +84,8 @@ function readBits (length) {
 function decompressNewFormat (compressedBytes) {
   // big-endian read 2 bytes
   const decompressedCodeLen = (compressedBytes[0] << 8) | compressedBytes[1]
-  const compressedCodeLen = (compressedBytes[2] << 8) | compressedBytes[3]
+  // 没用到
+  // const compressedCodeLen = (compressedBytes[2] << 8) | compressedBytes[3]
 
   // 创建 move-to-front 编码表
   const mtfList = []
