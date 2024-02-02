@@ -2,7 +2,8 @@
   "name": "p8-read",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/umd/index.js",
+  "module": "./dist/esm/index.js",
   "scripts": {
     "dev": "rollup -w --bundleConfigAsCjs --config rollup.config.js",
     "build": "rollup --bundleConfigAsCjs --config rollup.config.js",
