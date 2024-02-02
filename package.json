@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "rollup -w --bundleConfigAsCjs --config rollup.config.js",
+    "build": "rollup --bundleConfigAsCjs --config rollup.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@eslint/create-config": "^0.4.6",
+    "@rollup/plugin-terser": "^0.4.4",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.25.2",
