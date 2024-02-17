@@ -66,7 +66,6 @@ export function decompressNewFormat (compressedBytes) {
       const unaryMask = (1 << unary) - 1
       const str = readBits(unary + 4)
       const index = parseInt(str, 2) + (unaryMask << 4)
-      // 到这里正确（我只测了第一次循环，不严谨）
 
       const chr = String.fromCharCode(mtfList[index])
       code += chr
