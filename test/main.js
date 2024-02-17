@@ -1,5 +1,5 @@
 function run () {
-  window.Pico8Reader.readP8('./11980.p8.png').then((data) => {
+  window.Pico8Reader.readP8('./jelpi.p8.png').then((data) => {
     console.log('[P8]', data)
   })
 }
