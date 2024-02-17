@@ -1,7 +1,7 @@
 {
-  "name": "p8-read",
+  "name": "@erioifpudii/p8-read",
   "version": "1.0.0",
-  "description": "",
+  "description": "pico8 png file reader",
   "main": "./dist/umd/index.js",
   "module": "./dist/esm/index.js",
   "scripts": {
@@ -9,7 +9,11 @@
     "build": "rollup --bundleConfigAsCjs --config rollup.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Erioifpud/p8-read"
+  },
+  "keywords": ["pico8", "reader"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
