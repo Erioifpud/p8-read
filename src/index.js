@@ -1,4 +1,5 @@
 import { decompressNewFormat } from './newFormat'
+import { decompressOldFormat } from './oldFormat'
 
 // 加载图片并读取像素颜色
 function readImagePixels (imagePath) {
@@ -70,7 +71,8 @@ function readLuaPart (pico8Bytes) {
     const code = decompressNewFormat(mainPart)
     return code
   } else if (isOldFormat) {
-    // TODO: 解析旧版本格式
+    const code = decompressOldFormat(mainPart)
+    return code
   } else {
     // TODO: 解析纯文本格式
   }
