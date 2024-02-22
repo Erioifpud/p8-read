@@ -1,6 +1,6 @@
 {
   "name": "@erioifpudii/p8-read",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "pico8 png file reader",
   "main": "./dist/umd/bundle.js",
   "module": "./dist/esm/bundle.js",
