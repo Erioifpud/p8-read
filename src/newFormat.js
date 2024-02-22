@@ -98,8 +98,8 @@ export function decompressNewFormat (compressedBytes) {
       }
 
       if (offset > code.length) {
-        console.warn('offset 大于 code 长度', offset, code.length, code)
-        throw new Error('offset 大于 code 长度')
+        // console.warn('offset 大于 code 长度', offset, code.length, code)
+        throw new Error('offset 大于 code 长度', offset, code.length, code)
       }
 
       let chunk = ''
